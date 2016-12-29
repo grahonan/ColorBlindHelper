@@ -14,6 +14,8 @@
 		567F5FC41E12558A002DD0D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 567F5FC21E12558A002DD0D9 /* LaunchScreen.storyboard */; };
 		567F5FCF1E12558B002DD0D9 /* ColorBlindHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567F5FCE1E12558B002DD0D9 /* ColorBlindHelperTests.swift */; };
 		567F5FDA1E12558B002DD0D9 /* ColorBlindHelperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567F5FD91E12558B002DD0D9 /* ColorBlindHelperUITests.swift */; };
+		56A17A9A1E1286F900B24F18 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56A17A951E1286D600B24F18 /* GPUImage.framework */; };
+		56A17A9C1E12872200B24F18 /* GPUImage.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 56A17A951E1286D600B24F18 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +33,41 @@
 			remoteGlobalIDString = 567F5FB51E12558A002DD0D9;
 			remoteInfo = ColorBlindHelper;
 		};
+		56A17A941E1286D600B24F18 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56A17A8F1E1286D600B24F18 /* GPUImage-iOS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCD1B1251C66A262001F2BDC;
+			remoteInfo = GPUImage;
+		};
+		56A17A961E1286D600B24F18 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56A17A8F1E1286D600B24F18 /* GPUImage-iOS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCD1B12F1C66A262001F2BDC;
+			remoteInfo = GPUImageTests;
+		};
+		56A17A981E1286EE00B24F18 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 56A17A8F1E1286D600B24F18 /* GPUImage-iOS.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BCD1B1241C66A262001F2BDC;
+			remoteInfo = GPUImage;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		56A17A9B1E12870500B24F18 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				56A17A9C1E12872200B24F18 /* GPUImage.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		567F5FB61E12558A002DD0D9 /* ColorBlindHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorBlindHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +83,7 @@
 		567F5FD51E12558B002DD0D9 /* ColorBlindHelperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColorBlindHelperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		567F5FD91E12558B002DD0D9 /* ColorBlindHelperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorBlindHelperUITests.swift; sourceTree = "<group>"; };
 		567F5FDB1E12558B002DD0D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56A17A8F1E1286D600B24F18 /* GPUImage-iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "GPUImage-iOS.xcodeproj"; path = "../../../Downloads/GPUImage2-master/framework/GPUImage-iOS.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56A17A9A1E1286F900B24F18 /* GPUImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +119,7 @@
 				567F5FCD1E12558A002DD0D9 /* ColorBlindHelperTests */,
 				567F5FD81E12558B002DD0D9 /* ColorBlindHelperUITests */,
 				567F5FB71E12558A002DD0D9 /* Products */,
+				56A17A8F1E1286D600B24F18 /* GPUImage-iOS.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +164,15 @@
 			path = ColorBlindHelperUITests;
 			sourceTree = "<group>";
 		};
+		56A17A901E1286D600B24F18 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				56A17A951E1286D600B24F18 /* GPUImage.framework */,
+				56A17A971E1286D600B24F18 /* GPUImageTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,10 +183,12 @@
 				567F5FB21E12558A002DD0D9 /* Sources */,
 				567F5FB31E12558A002DD0D9 /* Frameworks */,
 				567F5FB41E12558A002DD0D9 /* Resources */,
+				56A17A9B1E12870500B24F18 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				56A17A991E1286EE00B24F18 /* PBXTargetDependency */,
 			);
 			name = ColorBlindHelper;
 			productName = ColorBlindHelper;
@@ -193,6 +243,7 @@
 				TargetAttributes = {
 					567F5FB51E12558A002DD0D9 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = CJP6ZTY54M;
 						ProvisioningStyle = Automatic;
 					};
 					567F5FC91E12558A002DD0D9 = {
@@ -218,6 +269,12 @@
 			mainGroup = 567F5FAD1E12558A002DD0D9;
 			productRefGroup = 567F5FB71E12558A002DD0D9 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 56A17A901E1286D600B24F18 /* Products */;
+					ProjectRef = 56A17A8F1E1286D600B24F18 /* GPUImage-iOS.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				567F5FB51E12558A002DD0D9 /* ColorBlindHelper */,
@@ -226,6 +283,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		56A17A951E1286D600B24F18 /* GPUImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GPUImage.framework;
+			remoteRef = 56A17A941E1286D600B24F18 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		56A17A971E1286D600B24F18 /* GPUImageTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = GPUImageTests.xctest;
+			remoteRef = 56A17A961E1286D600B24F18 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		567F5FB41E12558A002DD0D9 /* Resources */ = {
@@ -292,6 +366,11 @@
 			isa = PBXTargetDependency;
 			target = 567F5FB51E12558A002DD0D9 /* ColorBlindHelper */;
 			targetProxy = 567F5FD61E12558B002DD0D9 /* PBXContainerItemProxy */;
+		};
+		56A17A991E1286EE00B24F18 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GPUImage;
+			targetProxy = 56A17A981E1286EE00B24F18 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -412,6 +491,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CJP6ZTY54M;
 				INFOPLIST_FILE = ColorBlindHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = grayson.ColorBlindHelper;
@@ -424,6 +504,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CJP6ZTY54M;
 				INFOPLIST_FILE = ColorBlindHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = grayson.ColorBlindHelper;
@@ -505,6 +586,7 @@
 				567F5FE01E12558B002DD0D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		567F5FE11E12558B002DD0D9 /* Build configuration list for PBXNativeTarget "ColorBlindHelperTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +595,7 @@
 				567F5FE31E12558B002DD0D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		567F5FE41E12558B002DD0D9 /* Build configuration list for PBXNativeTarget "ColorBlindHelperUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +604,7 @@
 				567F5FE61E12558B002DD0D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

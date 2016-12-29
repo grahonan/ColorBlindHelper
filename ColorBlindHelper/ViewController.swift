@@ -1,25 +1,51 @@
-//
-//  ViewController.swift
-//  ColorBlindHelper
-//
-//  Created by Grayson Honan on 12/27/16.
-//  Copyright © 2016 Grayson Honan. All rights reserved.
-//
-
 import UIKit
+import CoreImage
+import GPUImage
+import AVFoundation
+
+let testImage = UIImage(named:"stripesbw.png")!
+let pictureInput = PictureInput(image:testImage)
 
 class ViewController: UIViewController {
-
+    var renderView: RenderView!
+    
+    let saturationFilter = SaturationAdjustment()
+    let testFilter = LowPassFilter()
+    let blendFilter = ChromaKeyBlend()
+    let alphaFilter = MultiplyBlend()
+    var camera:Camera!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
+        
+        do {
+            camera = try Camera(sessionPreset: AVCaptureSessionPresetHigh)
+            camera.runBenchmark = true
+            blendFilter.thresholdSensitivity = 0.4
+            blendFilter.smoothing = 0.1
+            blendFilter.colorToReplace = Color.init(red: <#T##Float#>, green: <#T##Float#>, blue: <#T##Float#>)
+            
+            testFilter.strength = 0.3
+            
+            
+            camera --> blendFilter --> renderView
+            camera --> alphaFilter
+            pictureInput --> alphaFilter --> blendFilter
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+            
+            
+            pictureInput.processImage()
+            camera.startCapture()
+        } catch {
+            fatalError("Could not initialize rendering pipeline: \(error)")
+        }
     }
-
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+    }
 
 }
 
