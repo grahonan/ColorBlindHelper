@@ -57,8 +57,6 @@ class ViewController: UIViewController {
     }
     
     func doSomeAnimation() {
-        //I have four pngs in my project, which are named frame1.png ... and so on
-        print("stripes\(counter).png")
         
         if counter == 25 {
             
@@ -71,11 +69,7 @@ class ViewController: UIViewController {
         
         testImage = UIImage(named: "stripes\(counter)-min.png")!
         
-        //camera.stopCapture()
         camera.removeAllTargets()
-        //blendFilter.removeAllTargets()
-        //satFilter.removeAllTargets()
-        //multiplyFilter.removeAllTargets()
         pictureInput.removeAllTargets()
         
         pictureInput = PictureInput(image:testImage)
@@ -85,7 +79,6 @@ class ViewController: UIViewController {
         pictureInput --> multiplyFilter --> blendFilter
         
         pictureInput.processImage()
-        //camera.startCapture()
     }
     
     override func viewDidLayoutSubviews() {
