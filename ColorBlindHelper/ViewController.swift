@@ -10,7 +10,6 @@ class ViewController: UIViewController {
     var renderView: RenderView!
     
     let saturationFilter = SaturationAdjustment()
-    let testFilter = LowPassFilter()
     let blendFilter = ChromaKeyBlend()
     let alphaFilter = MultiplyBlend()
     var camera:Camera!
@@ -25,17 +24,12 @@ class ViewController: UIViewController {
             camera.runBenchmark = true
             blendFilter.thresholdSensitivity = 0.4
             blendFilter.smoothing = 0.1
-            blendFilter.colorToReplace = Color.init(red: <#T##Float#>, green: <#T##Float#>, blue: <#T##Float#>)
-            
-            testFilter.strength = 0.3
-            
             
             camera --> blendFilter --> renderView
             camera --> alphaFilter
             pictureInput --> alphaFilter --> blendFilter
 
-            
-            
+
             pictureInput.processImage()
             camera.startCapture()
         } catch {
