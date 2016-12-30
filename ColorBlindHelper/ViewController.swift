@@ -1,26 +1,25 @@
 import UIKit
-import CoreImage
 import GPUImage
 import AVFoundation
 
-var testImage = UIImage(named:"stripes1-min.png")!
-
-var pictureInput = PictureInput(image:testImage)
+var stripeImage = UIImage(named:"stripes0-min.png")! // First frame of stripe animation
+var pictureInput = PictureInput(image:stripeImage)
 
 
 class ViewController: UIViewController {
     var renderView: RenderView!
-    
-    let saturationFilter = SaturationAdjustment()
+
     let blendFilter = ChromaKeyBlend()
     let multiplyFilter = MultiplyBlend()
-    let hueFilter = HueAdjustment()
     let satFilter = SaturationAdjustment()
-    let testFilter = LuminanceThreshold()
     let rgbFilter = RGBAdjustment()
     var camera:Camera!
     
-    var boost: Float = 1.0
+    var boost: Float = 1.0 // saved Red/Green adjustment value
+    let greenSensitivity: Float = 0.42
+    let redSensitivity: Float = 0.35
+    let intensityScaleFactor: Float = 10.0
+    let defaultVal:Float = 1.0
     
     @IBOutlet weak var stripeControl: UISegmentedControl!
     @IBOutlet weak var satSlider: UISlider!
@@ -28,27 +27,30 @@ class ViewController: UIViewController {
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var backButton: UIBarButtonItem!
     
-    var counter = 1
-    var timer = Timer()
-    override var prefersStatusBarHidden: Bool {
+    var counter = 0 // Frame counter for stripe animation
+    var timer = Timer() // Timer for stripe animation
+    override var prefersStatusBarHidden: Bool { // Hide status bar (carrier, battery, etc)
         return true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        timer = Timer.scheduledTimer(timeInterval: 0.30, target: self, selector: #selector(ViewController.doSomeAnimation), userInfo: nil, repeats: true)
+        
+        timer = Timer.scheduledTimer(timeInterval: 0.30, target: self, selector: #selector(ViewController.timerCB), userInfo: nil, repeats: true) // 300 ms timer
+        
         do {
             
             camera = try Camera(sessionPreset: AVCaptureSessionPresetHigh)
             camera.runBenchmark = true
-            blendFilter.thresholdSensitivity = 0.4
-            blendFilter.smoothing = 0.1
-            blendFilter.colorToReplace = Color.init(red: 0, green: 1, blue: 0, alpha: 1.0)
             
-            satFilter.saturation = 1
+            
+            blendFilter.thresholdSensitivity = greenSensitivity
+            blendFilter.colorToReplace = Color.green
 
             
             camera --> satFilter --> blendFilter  --> rgbFilter --> renderView
+            
+            // Generate stripe pattern on camera ouput
             camera --> multiplyFilter
             pictureInput --> multiplyFilter --> blendFilter
 
@@ -56,20 +58,21 @@ class ViewController: UIViewController {
             pictureInput.processImage()
 
             camera.startCapture()
-        } catch {
+        }
+        catch {
             fatalError("Could not initialize rendering pipeline: \(error)")
         }
         
     }
     
-    func doSomeAnimation() {
+    func timerCB() {
         
         
-        testImage = UIImage(named: "stripes\(counter)-min.png")!
+        stripeImage = UIImage(named: "stripes\(counter)-min.png")!  // Attach newest frame of animation to stripeImage
         
-
+        // Reset pictureInput and reprocess with new stripeImage
         pictureInput.removeAllTargets()
-        pictureInput = PictureInput(image:testImage)
+        pictureInput = PictureInput(image:stripeImage)
         pictureInput --> multiplyFilter --> blendFilter
         
         pictureInput.processImage()
@@ -78,40 +81,47 @@ class ViewController: UIViewController {
         counter %= 25
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-    }
-
+    
+    // Set the correct threshold and replacement color based on user's selection
     @IBAction func stripeModeSwitch(_ sender: UISegmentedControl) {
         
-        switch sender.selectedSegmentIndex
-        {
+        switch sender.selectedSegmentIndex {
         case 0:
-            blendFilter.thresholdSensitivity = 0.42
-            blendFilter.colorToReplace = Color.init(red: 0, green: 1, blue: 0, alpha: 1.0)
+            // set Chroma threshold and color
+            blendFilter.thresholdSensitivity = greenSensitivity
+            blendFilter.colorToReplace = Color.green
+            
+            // set RGB adjustment filter
             rgbFilter.red = boost
-            rgbFilter.green = 1
+            rgbFilter.green = defaultVal
             
         case 1:
-            blendFilter.thresholdSensitivity = 0.35
-            blendFilter.colorToReplace = Color.init(red: 1, green: 0, blue: 0, alpha: 1.0)
+            // set Chroma threshold and color
+            blendFilter.thresholdSensitivity = redSensitivity
+            blendFilter.colorToReplace = Color.red
             
+            // set RGB adjustment filter
             rgbFilter.green = boost
-            rgbFilter.red = 1
+            rgbFilter.red = defaultVal
         default:
             break;
         }
     }
+    
+    // Saturation slider adjusts both saturation and red/green intensity in non-striped region
     @IBAction func satChangeSlider(_ sender: UISlider) {
-        satFilter.saturation = sender.value + 1
-        boost = (sender.value/10.0) + Float(1.0)
-        if(stripeControl.selectedSegmentIndex == 0){
+        
+        satFilter.saturation = sender.value + defaultVal
+        boost = (sender.value/intensityScaleFactor) + defaultVal
+        
+        if(stripeControl.selectedSegmentIndex == 0){ // if Green, boost the red in the non-striped region
             rgbFilter.red = boost
-            rgbFilter.green = 1
-        } else {
+            rgbFilter.green = defaultVal
+        }
+        else { // if Red, boost the green in the non-striped region
             
             rgbFilter.green = boost
-            rgbFilter.red = 1
+            rgbFilter.red = defaultVal
         }
         
     }

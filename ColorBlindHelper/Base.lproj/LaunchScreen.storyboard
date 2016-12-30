@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="ipad12_9" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,11 +19,11 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Color Blind Helper" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIp-C4-qXd" userLabel="Text View1">
-                                <rect key="frame" x="71" y="219" width="881" height="181"/>
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Color Blind Buddy" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIp-C4-qXd" userLabel="Text View1">
+                                <rect key="frame" x="67" y="159" width="240" height="181"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="181" id="zbF-pc-ogw"/>
@@ -32,7 +32,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Copyright © 2016 Grayson Honan. All rights reserved." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qL5-c3-U9g" userLabel="Text View2">
-                                <rect key="frame" x="0.0" y="1335" width="1024" height="31"/>
+                                <rect key="frame" x="0.0" y="636" width="375" height="31"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="3YT-c3-pmM"/>
@@ -40,6 +40,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoT" translatesAutoresizingMaskIntoConstraints="NO" id="axR-KS-Kyt">
+                                <rect key="frame" x="67" y="236" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="cGz-1u-Two"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -48,7 +54,10 @@
                             <constraint firstItem="PIp-C4-qXd" firstAttribute="centerX" secondItem="qL5-c3-U9g" secondAttribute="centerX" id="Kh8-5n-ycJ"/>
                             <constraint firstItem="qL5-c3-U9g" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="PH1-fs-O0p"/>
                             <constraint firstAttribute="trailing" secondItem="qL5-c3-U9g" secondAttribute="trailing" id="PUl-G7-9Z7"/>
-                            <constraint firstItem="PIp-C4-qXd" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="199" id="XLa-dr-4rJ"/>
+                            <constraint firstItem="axR-KS-Kyt" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="216" id="Vyz-Kg-6Up"/>
+                            <constraint firstItem="PIp-C4-qXd" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="139" id="XLa-dr-4rJ"/>
+                            <constraint firstItem="axR-KS-Kyt" firstAttribute="trailing" secondItem="PIp-C4-qXd" secondAttribute="trailing" id="p9g-cN-PsO"/>
+                            <constraint firstItem="axR-KS-Kyt" firstAttribute="leading" secondItem="PIp-C4-qXd" secondAttribute="leading" id="wGK-FS-NQK"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -57,4 +66,7 @@
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logoT" width="1536" height="1536"/>
+    </resources>
 </document>

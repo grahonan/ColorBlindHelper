@@ -10,12 +10,10 @@
 		567F5FBA1E12558A002DD0D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567F5FB91E12558A002DD0D9 /* AppDelegate.swift */; };
 		567F5FBC1E12558A002DD0D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567F5FBB1E12558A002DD0D9 /* ViewController.swift */; };
 		567F5FBF1E12558A002DD0D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 567F5FBD1E12558A002DD0D9 /* Main.storyboard */; };
-		567F5FC11E12558A002DD0D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 567F5FC01E12558A002DD0D9 /* Assets.xcassets */; };
 		567F5FC41E12558A002DD0D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 567F5FC21E12558A002DD0D9 /* LaunchScreen.storyboard */; };
-		567F5FCF1E12558B002DD0D9 /* ColorBlindHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567F5FCE1E12558B002DD0D9 /* ColorBlindHelperTests.swift */; };
-		567F5FDA1E12558B002DD0D9 /* ColorBlindHelperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567F5FD91E12558B002DD0D9 /* ColorBlindHelperUITests.swift */; };
 		56A17A9A1E1286F900B24F18 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56A17A951E1286D600B24F18 /* GPUImage.framework */; };
 		56A17A9C1E12872200B24F18 /* GPUImage.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 56A17A951E1286D600B24F18 /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		56F7DEF41E1607AA002C7262 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56F7DEF31E1607AA002C7262 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,16 +72,12 @@
 		567F5FB91E12558A002DD0D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		567F5FBB1E12558A002DD0D9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		567F5FBE1E12558A002DD0D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		567F5FC01E12558A002DD0D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		567F5FC31E12558A002DD0D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		567F5FC51E12558A002DD0D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		567F5FCA1E12558A002DD0D9 /* ColorBlindHelperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColorBlindHelperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		567F5FCE1E12558B002DD0D9 /* ColorBlindHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorBlindHelperTests.swift; sourceTree = "<group>"; };
-		567F5FD01E12558B002DD0D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		567F5FD51E12558B002DD0D9 /* ColorBlindHelperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColorBlindHelperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		567F5FD91E12558B002DD0D9 /* ColorBlindHelperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorBlindHelperUITests.swift; sourceTree = "<group>"; };
-		567F5FDB1E12558B002DD0D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56A17A8F1E1286D600B24F18 /* GPUImage-iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "GPUImage-iOS.xcodeproj"; path = "../../../Downloads/GPUImage2-master/framework/GPUImage-iOS.xcodeproj"; sourceTree = "<group>"; };
+		56F7DEF31E1607AA002C7262 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ColorBlindHelper/Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,9 +109,8 @@
 		567F5FAD1E12558A002DD0D9 = {
 			isa = PBXGroup;
 			children = (
+				56F7DEF31E1607AA002C7262 /* Assets.xcassets */,
 				567F5FB81E12558A002DD0D9 /* ColorBlindHelper */,
-				567F5FCD1E12558A002DD0D9 /* ColorBlindHelperTests */,
-				567F5FD81E12558B002DD0D9 /* ColorBlindHelperUITests */,
 				567F5FB71E12558A002DD0D9 /* Products */,
 				56A17A8F1E1286D600B24F18 /* GPUImage-iOS.xcodeproj */,
 			);
@@ -139,29 +132,10 @@
 				567F5FB91E12558A002DD0D9 /* AppDelegate.swift */,
 				567F5FBB1E12558A002DD0D9 /* ViewController.swift */,
 				567F5FBD1E12558A002DD0D9 /* Main.storyboard */,
-				567F5FC01E12558A002DD0D9 /* Assets.xcassets */,
 				567F5FC21E12558A002DD0D9 /* LaunchScreen.storyboard */,
 				567F5FC51E12558A002DD0D9 /* Info.plist */,
 			);
 			path = ColorBlindHelper;
-			sourceTree = "<group>";
-		};
-		567F5FCD1E12558A002DD0D9 /* ColorBlindHelperTests */ = {
-			isa = PBXGroup;
-			children = (
-				567F5FCE1E12558B002DD0D9 /* ColorBlindHelperTests.swift */,
-				567F5FD01E12558B002DD0D9 /* Info.plist */,
-			);
-			path = ColorBlindHelperTests;
-			sourceTree = "<group>";
-		};
-		567F5FD81E12558B002DD0D9 /* ColorBlindHelperUITests */ = {
-			isa = PBXGroup;
-			children = (
-				567F5FD91E12558B002DD0D9 /* ColorBlindHelperUITests.swift */,
-				567F5FDB1E12558B002DD0D9 /* Info.plist */,
-			);
-			path = ColorBlindHelperUITests;
 			sourceTree = "<group>";
 		};
 		56A17A901E1286D600B24F18 /* Products */ = {
@@ -307,7 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				567F5FC41E12558A002DD0D9 /* LaunchScreen.storyboard in Resources */,
-				567F5FC11E12558A002DD0D9 /* Assets.xcassets in Resources */,
+				56F7DEF41E1607AA002C7262 /* Assets.xcassets in Resources */,
 				567F5FBF1E12558A002DD0D9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,7 +316,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				567F5FCF1E12558B002DD0D9 /* ColorBlindHelperTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,7 +323,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				567F5FDA1E12558B002DD0D9 /* ColorBlindHelperUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,7 +469,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = grayson.ColorBlindHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -511,7 +483,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = grayson.ColorBlindHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
