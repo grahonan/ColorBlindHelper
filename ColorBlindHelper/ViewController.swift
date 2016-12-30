@@ -17,11 +17,17 @@ class ViewController: UIViewController {
     let hueFilter = HueAdjustment()
     let satFilter = SaturationAdjustment()
     let testFilter = LuminanceThreshold()
+    let rgbFilter = RGBAdjustment()
     var camera:Camera!
+    
+    var boost: Float = 1.0
     
     @IBOutlet weak var stripeControl: UISegmentedControl!
     @IBOutlet weak var satSlider: UISlider!
-
+    @IBOutlet weak var helpButton: UIButton!
+    @IBOutlet weak var infoView: UIView!
+    @IBOutlet weak var backButton: UIBarButtonItem!
+    
     var counter = 1
     var timer = Timer()
     override var prefersStatusBarHidden: Bool {
@@ -30,7 +36,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(ViewController.doSomeAnimation), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.30, target: self, selector: #selector(ViewController.doSomeAnimation), userInfo: nil, repeats: true)
         do {
             
             camera = try Camera(sessionPreset: AVCaptureSessionPresetHigh)
@@ -42,12 +48,12 @@ class ViewController: UIViewController {
             satFilter.saturation = 1
 
             
-            /*camera --> blendFilter --> satFilter --> renderView
+            camera --> satFilter --> blendFilter  --> rgbFilter --> renderView
             camera --> multiplyFilter
             pictureInput --> multiplyFilter --> blendFilter
 
 
-            pictureInput.processImage()*/
+            pictureInput.processImage()
 
             camera.startCapture()
         } catch {
@@ -58,27 +64,18 @@ class ViewController: UIViewController {
     
     func doSomeAnimation() {
         
-        if counter == 25 {
-            
-            counter = 1
-            
-        }else {
-            
-            counter += 2
-        }
         
         testImage = UIImage(named: "stripes\(counter)-min.png")!
         
-        camera.removeAllTargets()
+
         pictureInput.removeAllTargets()
-        
         pictureInput = PictureInput(image:testImage)
-        
-        camera --> satFilter --> blendFilter --> renderView
-        camera --> multiplyFilter
         pictureInput --> multiplyFilter --> blendFilter
         
         pictureInput.processImage()
+        
+        counter += 5
+        counter %= 25
     }
     
     override func viewDidLayoutSubviews() {
@@ -90,15 +87,41 @@ class ViewController: UIViewController {
         switch sender.selectedSegmentIndex
         {
         case 0:
+            blendFilter.thresholdSensitivity = 0.42
             blendFilter.colorToReplace = Color.init(red: 0, green: 1, blue: 0, alpha: 1.0)
+            rgbFilter.red = boost
+            rgbFilter.green = 1
+            
         case 1:
+            blendFilter.thresholdSensitivity = 0.35
             blendFilter.colorToReplace = Color.init(red: 1, green: 0, blue: 0, alpha: 1.0)
+            
+            rgbFilter.green = boost
+            rgbFilter.red = 1
         default:
-            break; 
+            break;
         }
     }
     @IBAction func satChangeSlider(_ sender: UISlider) {
         satFilter.saturation = sender.value + 1
+        boost = (sender.value/10.0) + Float(1.0)
+        if(stripeControl.selectedSegmentIndex == 0){
+            rgbFilter.red = boost
+            rgbFilter.green = 1
+        } else {
+            
+            rgbFilter.green = boost
+            rgbFilter.red = 1
+        }
+        
+    }
+    
+    @IBAction func showHelp(_ sender: UIButton) {
+        infoView.isHidden = false
+    }
+    
+    @IBAction func hideHelp(_ sender: UIBarButtonItem) {
+        infoView.isHidden = true
     }
     
     
