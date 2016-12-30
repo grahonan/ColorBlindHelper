@@ -217,7 +217,7 @@
 				TargetAttributes = {
 					567F5FB51E12558A002DD0D9 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = CJP6ZTY54M;
+						DevelopmentTeam = D4MJ3HLKF9;
 						ProvisioningStyle = Automatic;
 					};
 					567F5FC91E12558A002DD0D9 = {
@@ -463,10 +463,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = CJP6ZTY54M;
+				DEVELOPMENT_TEAM = D4MJ3HLKF9;
 				INFOPLIST_FILE = ColorBlindHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = grayson.ColorBlindHelper;
+				PRODUCT_BUNDLE_IDENTIFIER = ColorBlindBuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -477,10 +477,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = CJP6ZTY54M;
+				DEVELOPMENT_TEAM = D4MJ3HLKF9;
 				INFOPLIST_FILE = ColorBlindHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = grayson.ColorBlindHelper;
+				PRODUCT_BUNDLE_IDENTIFIER = ColorBlindBuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
