@@ -31,7 +31,7 @@
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Copyright © 2016 Grayson Honan. All rights reserved." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qL5-c3-U9g" userLabel="Text View2">
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Copyright © 2017 Grayson Honan. All rights reserved." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qL5-c3-U9g" userLabel="Text View2">
                                 <rect key="frame" x="0.0" y="636" width="375" height="31"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
