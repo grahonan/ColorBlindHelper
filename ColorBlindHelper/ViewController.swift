@@ -15,17 +15,21 @@ class ViewController: UIViewController {
     let rgbFilter = RGBAdjustment()
     var camera:Camera!
     
+    var cameraCapturing: Bool = true // save whether we're in freeze frame mode or not
+    var stripesOn: Bool = true // save whether stripes are on or off
     var boost: Float = 1.0 // saved Red/Green adjustment value
     let greenSensitivity: Float = 0.42
     let redSensitivity: Float = 0.35
     let intensityScaleFactor: Float = 10.0
     let defaultVal:Float = 1.0
+    let defaultUIColor: UIColor = UIColor.init(red: 0, green: 0.478, blue: 1, alpha: 1)
     
     @IBOutlet weak var stripeControl: UISegmentedControl!
     @IBOutlet weak var satSlider: UISlider!
     @IBOutlet weak var helpButton: UIButton!
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var backButton: UIBarButtonItem!
+    @IBOutlet weak var freezeButton: UIButton!
     
     var counter = 0 // Frame counter for stripe animation
     var timer = Timer() // Timer for stripe animation
@@ -67,18 +71,22 @@ class ViewController: UIViewController {
     
     func timerCB() {
         
+        if(stripesOn){
+            stripeImage = UIImage(named: "stripes\(counter)-min.png")!  // Attach newest frame of animation to stripeImage
+        }
+        else {
+            stripeImage = UIImage(named: "white.png")!  // Attach white image to turn off stripes
+        }
+            // Reset pictureInput and reprocess with new stripeImage
+            pictureInput.removeAllTargets()
+            pictureInput = PictureInput(image:stripeImage)
+            pictureInput --> multiplyFilter --> blendFilter
+            
+            pictureInput.processImage()
+            
+            counter += 5
+            counter %= 25
         
-        stripeImage = UIImage(named: "stripes\(counter)-min.png")!  // Attach newest frame of animation to stripeImage
-        
-        // Reset pictureInput and reprocess with new stripeImage
-        pictureInput.removeAllTargets()
-        pictureInput = PictureInput(image:stripeImage)
-        pictureInput --> multiplyFilter --> blendFilter
-        
-        pictureInput.processImage()
-        
-        counter += 5
-        counter %= 25
     }
     
     
@@ -90,10 +98,13 @@ class ViewController: UIViewController {
             // set Chroma threshold and color
             blendFilter.thresholdSensitivity = greenSensitivity
             blendFilter.colorToReplace = Color.green
+            blendFilter.smoothing = 0.1
             
             // set RGB adjustment filter
             rgbFilter.red = boost
             rgbFilter.green = defaultVal
+            
+            stripesOn = true
             
         case 1:
             // set Chroma threshold and color
@@ -103,6 +114,13 @@ class ViewController: UIViewController {
             // set RGB adjustment filter
             rgbFilter.green = boost
             rgbFilter.red = defaultVal
+            
+            stripesOn = true
+            
+        case 2:
+            // turn off stripe pattern
+            stripesOn = false
+
         default:
             break;
         }
@@ -126,7 +144,22 @@ class ViewController: UIViewController {
         
     }
     
-    @IBAction func showHelp(_ sender: UIButton) {
+    @IBAction func freezeToggle(_ sender: UIButton) {
+        if(cameraCapturing){
+            camera.stopCapture()
+            cameraCapturing = false
+            sender.setTitle("Unfreeze", for: UIControlState.normal)
+            sender.tintColor = UIColor.red
+        }
+        else {
+            camera.startCapture()
+            cameraCapturing = true
+            sender.setTitle("Freeze", for: UIControlState.normal)
+            sender.tintColor = defaultUIColor
+        }
+    }
+    
+    @IBAction func showHelp (_ sender: UIButton) {
         infoView.isHidden = false
     }
     
