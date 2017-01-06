@@ -29,7 +29,7 @@
                                         <rect key="frame" x="0.0" y="576" width="375" height="91"/>
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ph7-9s-K7O">
-                                                <rect key="frame" x="216" y="47" width="145" height="31"/>
+                                                <rect key="frame" x="218" y="47" width="143" height="31"/>
                                                 <connections>
                                                     <action selector="satChangeSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="WEs-oE-6hh"/>
                                                 </connections>
@@ -46,7 +46,7 @@
                                                 </connections>
                                             </segmentedControl>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H4m-as-yAb">
-                                                <rect key="frame" x="156" y="7" width="63" height="30"/>
+                                                <rect key="frame" x="156.5" y="7" width="63" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="63" id="ugd-9e-801"/>
                                                 </constraints>
@@ -57,7 +57,7 @@
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Saturation" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gHe-bx-WEM">
-                                                <rect key="frame" x="245" y="7" width="88" height="30"/>
+                                                <rect key="frame" x="245.5" y="7" width="88" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -92,6 +92,17 @@
                                             <action selector="showHelp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7o7-VU-YhO"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HtW-fb-BpR" userLabel="Light Button">
+                                        <rect key="frame" x="11" y="5.5" width="17" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="99v-Vy-LGN"/>
+                                            <constraint firstAttribute="width" constant="17" id="q6g-c0-oAG"/>
+                                        </constraints>
+                                        <state key="normal" image="lightbulbWhite"/>
+                                        <connections>
+                                            <action selector="toggleFlash:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jf0-xq-wK8"/>
+                                        </connections>
+                                    </button>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J91-xT-mk7" userLabel="InfoView">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
@@ -108,16 +119,16 @@
                                                 </items>
                                             </navigationBar>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U81-jk-pOG" userLabel="StripesText">
-                                                <rect key="frame" x="8" y="58" width="359" height="93"/>
+                                                <rect key="frame" x="8" y="58" width="359" height="100"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="93" id="5oV-T3-uE1"/>
+                                                    <constraint firstAttribute="height" constant="100" id="5oV-T3-uE1"/>
                                                 </constraints>
                                                 <string key="text">Use the "Stripes" control to superimpose a stripe pattern on either the green or red image regions. The stripe pattern is animated to assist in finding the region(s) of interest. You may also turn the stripes off completely. </string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Use the &quot;Saturation&quot; slider to boost saturation of the non-striped image region." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfY-wK-vXd" userLabel="SaturationText">
-                                                <rect key="frame" x="8" y="155" width="359" height="69"/>
+                                                <rect key="frame" x="8" y="162" width="359" height="69"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="69" id="00r-65-xCp"/>
                                                 </constraints>
@@ -125,19 +136,28 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Use the &quot;Freeze&quot; button to toggle freeze frame mode on/off." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHm-Z5-sMw" userLabel="FreezeText">
-                                                <rect key="frame" x="8" y="214" width="359" height="49"/>
+                                                <rect key="frame" x="8" y="221" width="359" height="51"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="49" id="fa0-0t-ouj"/>
+                                                    <constraint firstAttribute="height" constant="51" id="fa0-0t-ouj"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Thank you for using Color Blind Buddy v1.0.1! Please feel free to send feedback to grayson@digitalapex.net" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="E2q-gA-qAh" userLabel="FeedbackText">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Thank you for using Color Blind Buddy v1.0.2! Please feel free to send feedback to grayson@digitalapex.net" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="E2q-gA-qAh" userLabel="FeedbackText">
                                                 <rect key="frame" x="8" y="596" width="359" height="63"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="63" id="Eob-h9-YSn"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Use the Lightbulb icon to toggle your camera's flash on/off." textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIR-UR-B5W" userLabel="LightbulbText">
+                                                <rect key="frame" x="8" y="280" width="359" height="56"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="56" id="6I6-zD-ZAc"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -148,6 +168,7 @@
                                             <constraint firstItem="7uo-oH-KhD" firstAttribute="leading" secondItem="J91-xT-mk7" secondAttribute="leading" id="0cv-uW-4ff"/>
                                             <constraint firstItem="E2q-gA-qAh" firstAttribute="bottom" secondItem="J91-xT-mk7" secondAttribute="bottomMargin" id="3UF-Jb-9PO"/>
                                             <constraint firstItem="NfY-wK-vXd" firstAttribute="top" secondItem="U81-jk-pOG" secondAttribute="bottom" constant="4" id="65H-WW-Esi"/>
+                                            <constraint firstItem="UIR-UR-B5W" firstAttribute="trailing" secondItem="OHm-Z5-sMw" secondAttribute="trailing" id="9ke-oW-tpT"/>
                                             <constraint firstItem="U81-jk-pOG" firstAttribute="leading" secondItem="J91-xT-mk7" secondAttribute="leadingMargin" id="B5g-2g-7nb"/>
                                             <constraint firstItem="E2q-gA-qAh" firstAttribute="trailing" secondItem="NfY-wK-vXd" secondAttribute="trailing" id="Cx6-YU-PUD"/>
                                             <constraint firstAttribute="trailing" secondItem="7uo-oH-KhD" secondAttribute="trailing" id="KI2-Z1-zyg"/>
@@ -155,7 +176,9 @@
                                             <constraint firstItem="OHm-Z5-sMw" firstAttribute="top" secondItem="U81-jk-pOG" secondAttribute="bottom" constant="63" id="aPK-Zn-TOI"/>
                                             <constraint firstItem="U81-jk-pOG" firstAttribute="top" secondItem="7uo-oH-KhD" secondAttribute="bottom" constant="14" id="b4I-9E-ohx"/>
                                             <constraint firstItem="U81-jk-pOG" firstAttribute="trailing" secondItem="NfY-wK-vXd" secondAttribute="trailing" id="dZW-6M-BHE"/>
+                                            <constraint firstItem="UIR-UR-B5W" firstAttribute="top" secondItem="OHm-Z5-sMw" secondAttribute="bottom" constant="8" symbolic="YES" id="igA-9f-Njk"/>
                                             <constraint firstItem="7uo-oH-KhD" firstAttribute="centerX" secondItem="U81-jk-pOG" secondAttribute="centerX" id="rDo-da-u8X"/>
+                                            <constraint firstItem="UIR-UR-B5W" firstAttribute="leading" secondItem="OHm-Z5-sMw" secondAttribute="leading" id="vbi-fy-DH9"/>
                                             <constraint firstItem="E2q-gA-qAh" firstAttribute="leading" secondItem="NfY-wK-vXd" secondAttribute="leading" id="wjI-h2-fUh"/>
                                             <constraint firstItem="OHm-Z5-sMw" firstAttribute="trailing" secondItem="NfY-wK-vXd" secondAttribute="trailing" id="xpx-Ul-Sm8"/>
                                             <constraint firstItem="U81-jk-pOG" firstAttribute="leading" secondItem="NfY-wK-vXd" secondAttribute="leading" id="ybS-rp-bMA"/>
@@ -172,7 +195,9 @@
                                     <constraint firstItem="J91-xT-mk7" firstAttribute="leading" secondItem="cSM-7O-Rq8" secondAttribute="leading" id="HD0-tT-tMu"/>
                                     <constraint firstAttribute="trailing" secondItem="cSM-7O-Rq8" secondAttribute="trailing" id="L8z-oo-d26"/>
                                     <constraint firstItem="cSM-7O-Rq8" firstAttribute="leading" secondItem="MIZ-bY-Kwk" secondAttribute="leading" id="YfM-3x-ZsQ"/>
+                                    <constraint firstItem="HtW-fb-BpR" firstAttribute="leading" secondItem="MIZ-bY-Kwk" secondAttribute="leading" constant="11" id="dpl-4E-PsQ"/>
                                     <constraint firstItem="J91-xT-mk7" firstAttribute="trailing" secondItem="cSM-7O-Rq8" secondAttribute="trailing" id="gsB-dO-Fod"/>
+                                    <constraint firstItem="HtW-fb-BpR" firstAttribute="centerY" secondItem="hlh-1W-xiI" secondAttribute="centerY" id="kCg-Fj-cwo"/>
                                     <constraint firstItem="hlh-1W-xiI" firstAttribute="top" secondItem="MIZ-bY-Kwk" secondAttribute="top" constant="7" id="ne8-0y-FvJ"/>
                                     <constraint firstItem="hlh-1W-xiI" firstAttribute="trailing" secondItem="MIZ-bY-Kwk" secondAttribute="trailingMargin" id="wDj-Yj-TMM"/>
                                 </constraints>
@@ -191,6 +216,7 @@
                         <outlet property="freezeButton" destination="H4m-as-yAb" id="mGf-lu-ViJ"/>
                         <outlet property="helpButton" destination="hlh-1W-xiI" id="eoj-Tv-hXj"/>
                         <outlet property="infoView" destination="J91-xT-mk7" id="ifR-lu-tNL"/>
+                        <outlet property="lightButton" destination="HtW-fb-BpR" id="zAB-b0-8Z1"/>
                         <outlet property="renderView" destination="MIZ-bY-Kwk" id="2Sj-7n-kNT"/>
                         <outlet property="satSlider" destination="Ph7-9s-K7O" id="uf5-iG-vvO"/>
                         <outlet property="stripeControl" destination="Xyp-dV-lsS" id="j52-ot-4eG"/>
@@ -198,7 +224,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-82.400000000000006" y="598.65067466266873"/>
+            <point key="canvasLocation" x="-129.375" y="555.63380281690138"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="lightbulbWhite" width="56" height="85"/>
+    </resources>
 </document>

@@ -15,11 +15,14 @@ class ViewController: UIViewController {
     let rgbFilter = RGBAdjustment()
     var camera:Camera!
     
+    var torchOn: Bool = false;
     var cameraCapturing: Bool = true // save whether we're in freeze frame mode or not
     var stripesOn: Bool = true // save whether stripes are on or off
     var boost: Float = 1.0 // saved Red/Green adjustment value
-    let greenSensitivity: Float = 0.42
-    let redSensitivity: Float = 0.35
+    var redThreshold: Float = 0.2;
+    var greenThreshold: Float = 0.4;
+    let greenSensitivity: Float = 0.4
+    let redSensitivity: Float = 0.2
     let intensityScaleFactor: Float = 10.0
     let defaultVal:Float = 1.0
     let defaultUIColor: UIColor = UIColor.init(red: 0, green: 0.478, blue: 1, alpha: 1)
@@ -30,6 +33,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var freezeButton: UIButton!
+    @IBOutlet weak var lightButton: UIButton!
     
     var counter = 0 // Frame counter for stripe animation
     var timer = Timer() // Timer for stripe animation
@@ -96,7 +100,8 @@ class ViewController: UIViewController {
         switch sender.selectedSegmentIndex {
         case 0:
             // set Chroma threshold and color
-            blendFilter.thresholdSensitivity = greenSensitivity
+            greenThreshold = (satSlider.value/intensityScaleFactor) + greenSensitivity;
+            blendFilter.thresholdSensitivity = greenThreshold
             blendFilter.colorToReplace = Color.green
             blendFilter.smoothing = 0.1
             
@@ -108,7 +113,8 @@ class ViewController: UIViewController {
             
         case 1:
             // set Chroma threshold and color
-            blendFilter.thresholdSensitivity = redSensitivity
+            redThreshold = (satSlider.value/intensityScaleFactor) + redSensitivity;
+            blendFilter.thresholdSensitivity = redThreshold;
             blendFilter.colorToReplace = Color.red
             
             // set RGB adjustment filter
@@ -130,14 +136,18 @@ class ViewController: UIViewController {
     @IBAction func satChangeSlider(_ sender: UISlider) {
         
         satFilter.saturation = sender.value + defaultVal
+        
         boost = (sender.value/intensityScaleFactor) + defaultVal
         
         if(stripeControl.selectedSegmentIndex == 0){ // if Green, boost the red in the non-striped region
+            greenThreshold = (sender.value/intensityScaleFactor) + greenSensitivity;
+            blendFilter.thresholdSensitivity = greenThreshold;
             rgbFilter.red = boost
             rgbFilter.green = defaultVal
         }
         else { // if Red, boost the green in the non-striped region
-            
+            redThreshold = (sender.value/intensityScaleFactor) + redSensitivity;
+            blendFilter.thresholdSensitivity = redThreshold;
             rgbFilter.green = boost
             rgbFilter.red = defaultVal
         }
@@ -153,6 +163,10 @@ class ViewController: UIViewController {
         }
         else {
             camera.startCapture()
+            if(torchOn){
+                torchOn = false;
+                toggleFlash(lightButton);
+            }
             cameraCapturing = true
             sender.setTitle("Freeze", for: UIControlState.normal)
             sender.tintColor = defaultUIColor
@@ -165,6 +179,29 @@ class ViewController: UIViewController {
     
     @IBAction func hideHelp(_ sender: UIBarButtonItem) {
         infoView.isHidden = true
+    }
+    
+    @IBAction func toggleFlash(_ sender: UIButton) {
+        let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+        if (device?.hasTorch)! {
+            do {
+                try device?.lockForConfiguration()
+                if (torchOn) {
+                    device?.torchMode = AVCaptureTorchMode.off
+                    torchOn = false;
+                } else {
+                    do {
+                        try device?.setTorchModeOnWithLevel(1.0)
+                        torchOn = true;
+                    } catch {
+                        print(error)
+                    }
+                }
+                device?.unlockForConfiguration()
+            } catch {
+                print(error)
+            }
+        }
     }
     
     
