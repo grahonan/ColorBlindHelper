@@ -1,9 +1,9 @@
 # ColorBlindHelper
-Color Blind Buddy is a live-video utility app for people who are color blind.
+Color Blind Buddy is a live-video utility app for people who are color blind. Makes use of the [GPUImage2](https://github.com/BradLarson/GPUImage2) framework.
 
 Created as a side project -- Winter Vacation 2016
 
-Features:
+**Features:**
 
 • Highlight either the red or green regions of the image with an animated stripe pattern
 
