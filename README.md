@@ -15,5 +15,5 @@ Features:
 
 • Simple interface for fast color recognition
 
-![CBB7](/Images/cbb7.png?raw=true =100x) ![CBB8](/Images/cbb8.png?raw=true =100x) ![CBB9](/Images/cbb9.png?raw=true =100x)
+<img src="/Images/cbb7.png" width="200" /> <img src="/Images/cbb8.png" width="200" /> <img src="/Images/cbb9.png" width="200" />
 
