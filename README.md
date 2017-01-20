@@ -15,7 +15,7 @@ Features:
 
 • Simple interface for fast color recognition
 
-![CBB7](/Images/cbb7.jpg?raw=true)
-![CBB8](/Images/cbb8.jpg?raw=true)
-![CBB9](/Images/cbb9.jpg?raw=true)
+![CBB7](/Images/cbb7.png?raw=true)
+![CBB8](/Images/cbb8.png?raw=true)
+![CBB9](/Images/cbb9.png?raw=true)
 
