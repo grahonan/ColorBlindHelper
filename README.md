@@ -1,5 +1,5 @@
 # ColorBlindHelper
-**NOTE: This is a personal project I created during free time in December 2016. This was my first time using Swift :)**
+**NOTE: This is a personal project I created during free time in December 2016. This was my first time using Swift and GPUImage2, and as first experiences go, this project was a lot of fun! You can download Color Blind Buddy for free from the App Store at this [link.](https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1190798700&mt=8)**
 
 Color Blind Buddy is a live-video utility app for people who are color blind. Makes use of the [GPUImage2](https://github.com/BradLarson/GPUImage2) framework.
 
